@@ -1,59 +1,50 @@
 import { useState } from 'react';
-import Notiflix from 'notiflix';
+import { useDispatch } from 'react-redux';
+import { authOperations } from 'redux/auth';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {
   Container,
   CssBaseline,
   Box,
+  Avatar,
   Typography,
   Grid,
   TextField,
   Button,
+  Link,
 } from '@mui/material';
-import {
-  useFetchContactsQuery,
-  useCreateContactMutation,
-} from 'redux/contacts/contactsApi';
+import { NavLink } from 'react-router-dom';
 
-const ContactForm = () => {
+const RegisterPage = () => {
+  const dispatch = useDispatch();
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
-
-  const { data: contacts } = useFetchContactsQuery();
-  const [addContact] = useCreateContactMutation();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const theme = createTheme();
 
-  const handleChange = event => {
-    const { name, value } = event.target;
+  const handleChange = ({ currentTarget: { name, value } }) => {
     switch (name) {
       case 'name':
         setName(value);
         break;
-      case 'number':
-        setNumber(value);
+      case 'email':
+        setEmail(value);
+        break;
+      case 'password':
+        setPassword(value);
         break;
       default:
-        return;
+        break;
     }
   };
 
-  const resetForm = () => {
-    setName('');
-    setNumber('');
-  };
   const handleSubmit = event => {
     event.preventDefault();
-    if (
-      contacts.find(
-        contact => contact.name.toLowerCase() === name.toLowerCase()
-      )
-    ) {
-      Notiflix.Notify.warning(`${name} is already in contacts`);
-    } else {
-      addContact({ name, number });
-    }
-    resetForm();
+    dispatch(authOperations.register({ name, email, password }));
+    setName('');
+    setEmail('');
+    setPassword('');
   };
 
   return (
@@ -68,8 +59,9 @@ const ContactForm = () => {
             alignItems: 'center',
           }}
         >
+          <Avatar sx={{ m: 1, bgcolor: '#1976d2' }}></Avatar>
           <Typography component="h1" variant="h5">
-            Create new contact
+            Register
           </Typography>
           <Box
             component="form"
@@ -80,29 +72,41 @@ const ContactForm = () => {
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
+                  autoFocus
                   required
-                  aria-required="true"
                   fullWidth
+                  id="Name"
                   label="Name"
-                  name="name"
+                  name="Name"
                   type="text"
                   value={name}
                   onChange={handleChange}
-                  pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                  title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  fullWidth
-                  label="Number"
-                  type="tel"
-                  value={number}
-                  onChange={handleChange}
-                  name="number"
-                  pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-                  title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                   required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                  type="email"
+                  value={email}
+                  onChange={handleChange}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="new-password"
+                  value={password}
+                  onChange={handleChange}
                 />
               </Grid>
             </Grid>
@@ -112,13 +116,19 @@ const ContactForm = () => {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Add contact
+              Register
             </Button>
+            <Grid container justifyContent="flex-end">
+              <Grid item>
+                <Link variant="body2" component={NavLink} to="/login">
+                  Already have an account? Login
+                </Link>
+              </Grid>
+            </Grid>
           </Box>
         </Box>
       </Container>
     </ThemeProvider>
   );
 };
-
-export default ContactForm;
+export default RegisterPage;
