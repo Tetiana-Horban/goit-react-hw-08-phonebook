@@ -60,7 +60,6 @@ const getCurrentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
   const persistedToken = state.auth.token;
 
   if (persistedToken === null) {
-    console.log('Токена нет, уходим из fetchCurrentUser');
     return thunkAPI.rejectWithValue();
   }
 
