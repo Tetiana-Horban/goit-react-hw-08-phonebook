@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.js": "/goit-react-hw-08-phonebook/static/js/main.c7070848.js",
+    "main.js": "/goit-react-hw-08-phonebook/static/js/main.12d00472.js",
     "static/js/724.e8eee54a.chunk.js": "/goit-react-hw-08-phonebook/static/js/724.e8eee54a.chunk.js",
     "static/js/671.a275ac9a.chunk.js": "/goit-react-hw-08-phonebook/static/js/671.a275ac9a.chunk.js",
     "static/js/551.4958e035.chunk.js": "/goit-react-hw-08-phonebook/static/js/551.4958e035.chunk.js",
-    "static/js/811.18bd09f2.chunk.js": "/goit-react-hw-08-phonebook/static/js/811.18bd09f2.chunk.js",
+    "static/js/811.988d81b6.chunk.js": "/goit-react-hw-08-phonebook/static/js/811.988d81b6.chunk.js",
     "static/js/546.a4062b52.chunk.js": "/goit-react-hw-08-phonebook/static/js/546.a4062b52.chunk.js",
     "static/js/575.100bbe1b.chunk.js": "/goit-react-hw-08-phonebook/static/js/575.100bbe1b.chunk.js",
     "static/media/homePage.jpg": "/goit-react-hw-08-phonebook/static/media/homePage.f19e256caaea4af983cf.jpg",
     "index.html": "/goit-react-hw-08-phonebook/index.html",
-    "main.c7070848.js.map": "/goit-react-hw-08-phonebook/static/js/main.c7070848.js.map",
+    "main.12d00472.js.map": "/goit-react-hw-08-phonebook/static/js/main.12d00472.js.map",
     "724.e8eee54a.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/724.e8eee54a.chunk.js.map",
     "671.a275ac9a.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/671.a275ac9a.chunk.js.map",
     "551.4958e035.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/551.4958e035.chunk.js.map",
-    "811.18bd09f2.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/811.18bd09f2.chunk.js.map",
+    "811.988d81b6.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/811.988d81b6.chunk.js.map",
     "546.a4062b52.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/546.a4062b52.chunk.js.map",
     "575.100bbe1b.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/575.100bbe1b.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.c7070848.js"
+    "static/js/main.12d00472.js"
   ]
 }
