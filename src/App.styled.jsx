@@ -5,7 +5,7 @@ import homePageImg from './images/homePage.jpg';
 const AppWrapper = styled.div`
   background-image: url('${images}');
   padding-top: 45px;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   margin: 0 auto;
 `;

@@ -80,27 +80,34 @@ const ContactForm = () => {
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
-                  required
-                  aria-required="true"
+                  inputProps={{
+                    pattern:
+                      "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$",
+                  }}
                   fullWidth
+                  required
                   label="Name"
                   name="name"
                   type="text"
                   value={name}
                   onChange={handleChange}
-                  pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                  title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+                  title={
+                    "Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+                  }
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                  inputProps={{
+                    pattern:
+                      '+?d{1,4}?[-.s]?(?d{1,3}?)?[-.s]?d{1,4}[-.s]?d{1,4}[-.s]?d{1,9}',
+                  }}
                   fullWidth
                   label="Number"
                   type="tel"
                   value={number}
                   onChange={handleChange}
                   name="number"
-                  pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
                   title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                   required
                 />
@@ -120,5 +127,4 @@ const ContactForm = () => {
     </ThemeProvider>
   );
 };
-
 export default ContactForm;

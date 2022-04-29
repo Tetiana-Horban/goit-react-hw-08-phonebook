@@ -81,33 +81,3 @@ const authOperations = {
   getCurrentUser,
 };
 export default authOperations;
-
-// export const fetchUserBytoken = createAsyncThunk(
-//   'users/fetchUserByToken',
-//   async ({ token }, thunkAPI) => {
-//     try {
-//       const response = await fetch(
-//         'https://mock-user-auth-server.herokuapp.com/api/v1/users',
-//         {
-//           method: 'GET',
-//           headers: {
-//             Accept: 'application/json',
-//             Authorization: token,
-//             'Content-Type': 'application/json',
-//           },
-//         }
-//       );
-//       let data = await response.json();
-//       console.log('data', data, response.status);
-
-//       if (response.status === 200) {
-//         return { ...data };
-//       } else {
-//         return thunkAPI.rejectWithValue(data);
-//       }
-//     } catch (e) {
-//       console.log('Error', e.response.data);
-//       return thunkAPI.rejectWithValue(e.response.data);
-//     }
-//   }
-// );
